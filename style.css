@@ -1,0 +1,252 @@
+/*GLOBAL*/
+body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background: linear-gradient(to bottom, #0a0a0a, #1a0000);
+    color: #f5f5dc;
+}
+
+/* === HEADER === */
+header {
+    text-align: center;
+    padding: 3rem 1rem;
+    background: black;
+    border-bottom: 2px solid gold;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: gold;
+    letter-spacing: 2px;
+}
+
+header p {
+    color: #bfa14a;
+    font-style: italic;
+}
+
+/* === NAVBAR === */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 1rem;
+    background: #120000;
+    border-bottom: 1px solid gold;
+}
+
+nav a {
+    color: gold;
+    text-decoration: none;
+    font-weight: bold;
+    position: relative;
+    transition: 0.3s;
+}
+
+/* Hover underline animation */
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: red;
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: red;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* === SECTIONS === */
+section {
+    padding: 3rem 2rem;
+    max-width: 900px;
+    margin: auto;
+}
+
+h2 {
+    color: gold;
+    border-bottom: 1px solid gold;
+    padding-bottom: 0.5rem;
+}
+
+/* === PROJECT CARDS === */
+.project {
+    background: rgba(0, 0, 0, 0.7);
+    border: 1px solid gold;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover animation */
+.project:hover {
+    color: red;
+    text-shadow: 0 0 10px red;
+}
+
+/* === PROJECT IMAGE === */
+.project img {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    border: 1px solid gold;
+}
+
+/* === SKILLS === */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: rgba(255, 215, 0, 0.1);
+    margin: 0.5rem 0;
+    padding: 0.7rem;
+    border-left: 3px solid gold;
+}
+
+/* === LINKS === */
+a {
+    color: gold;
+}
+
+a:hover {
+    color: red;
+}
+
+/* === FOOTER === */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: black;
+    border-top: 2px solid gold;
+    margin-top: 2rem;
+}
+
+/* === FADE-IN ANIMATION === */
+section {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 1s ease forwards;
+}
+
+section:nth-child(2) { animation-delay: 0.2s; }
+section:nth-child(3) { animation-delay: 0.4s; }
+section:nth-child(4) { animation-delay: 0.6s; }
+section:nth-child(5) { animation-delay: 0.8s; }
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === INTRO SCREEN === */
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Logo style */
+.logo {
+    font-size: 3rem;
+    letter-spacing: 5px;
+    color: white;
+    filter: grayscale(100%);
+    animation: logoReveal 2s ease forwards;
+}
+
+/* Enter button */
+#enter-btn {
+    margin-top: 20px;
+    padding: 10px 25px;
+    font-size: 1rem;
+    background: transparent;
+    border: 1px solid gold;
+    color: gold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#enter-btn:hover {
+    background: gold;
+    color: black;
+}
+
+/* Fade out animation */
+.fade-out {
+    animation: fadeOut 1.5s ease forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+#intro {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: url("images/EmberAscent Logo.png") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Dark overlay so text is readable */
+#intro::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Keep content above overlay */
+.logo-container {
+    position: relative;
+    text-align: center;
+}
+
+.logo {
+    color: white;
+    font-size: 3rem;
+    letter-spacing: 4px;
+}
+
+/*particles*/
+
+#embers {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* allows clicks through */
+    z-index: 0;
+}
+
+/* Make sure content is above particles */
+header, nav, section, footer {
+    position: relative;
+    z-index: 1;
+}
